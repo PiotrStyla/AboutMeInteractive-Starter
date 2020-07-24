@@ -35,15 +35,22 @@ class TitleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
-                R.layout.fragment_title,container,false)
-        binding.playButton.setOnClickListener{
+                R.layout.fragment_title, container, false)
 
-            //The complete onClickListener with Navigation
-            binding.playButton.setOnClickListener { view : View ->
-                view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
-            }
-            setHasOptionsMenu(true)
+
+        //The complete onClickListener with Navigation
+        binding.playButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
         }
+        binding.rulesButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_titleFragment_to_rulesFragment)
+        }
+        binding.aboutButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_titleFragment_to_aboutFragment)
+        }
+        setHasOptionsMenu(true)
+
+
         return binding.root
     }
 
